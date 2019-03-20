@@ -1,0 +1,66 @@
+PODS:
+  - FirebaseAuth (5.3.1):
+    - FirebaseAuthInterop (~> 1.0)
+    - FirebaseCore (~> 5.2)
+    - GoogleUtilities/Environment (~> 5.2)
+    - GTMSessionFetcher/Core (~> 1.1)
+  - FirebaseAuthInterop (1.0.0)
+  - FirebaseCore (5.3.0):
+    - GoogleUtilities/Logger (~> 5.2)
+  - FirebaseDatabase (5.1.0):
+    - FirebaseAuthInterop (~> 1.0)
+    - FirebaseCore (~> 5.2)
+    - leveldb-library (~> 1.18)
+  - FirebaseStorage (3.1.0):
+    - FirebaseAuthInterop (~> 1.0)
+    - FirebaseCore (~> 5.2)
+    - GTMSessionFetcher/Core (~> 1.1)
+  - GoogleUtilities/Environment (5.3.7)
+  - GoogleUtilities/Logger (5.3.7):
+    - GoogleUtilities/Environment
+  - GTMSessionFetcher/Core (1.2.1)
+  - leveldb-library (1.20)
+  - RxAtomic (4.4.1)
+  - RxCocoa (4.4.1):
+    - RxSwift (~> 4.0)
+  - RxSwift (4.4.1):
+    - RxAtomic (~> 4.4)
+
+DEPENDENCIES:
+  - FirebaseAuth
+  - FirebaseCore
+  - FirebaseDatabase
+  - FirebaseStorage
+  - RxCocoa (~> 4.0)
+  - RxSwift (~> 4.0)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - FirebaseAuth
+    - FirebaseAuthInterop
+    - FirebaseCore
+    - FirebaseDatabase
+    - FirebaseStorage
+    - GoogleUtilities
+    - GTMSessionFetcher
+    - leveldb-library
+    - RxAtomic
+    - RxCocoa
+    - RxSwift
+
+SPEC CHECKSUMS:
+  FirebaseAuth: 0f61e1329237da5682c49c9abd135e8f9d07a151
+  FirebaseAuthInterop: 0ffa57668be100582bb7643d4fcb7615496c41fc
+  FirebaseCore: c0c4befb82374d6aef64d800e569f47625352edc
+  FirebaseDatabase: 23acb0c53cd4d4070a427b60100b2e4aaa97c45d
+  FirebaseStorage: 29075f874c2b3cf61e5221a62c4ceefc809e5412
+  GoogleUtilities: 111a012f4c3a29c9e7c954c082fafd6ee3c999c0
+  GTMSessionFetcher: 32aeca0aa144acea523e1c8e053089dec2cb98ca
+  leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
+  RxAtomic: f8d6adc1ccb87a767811269e4875887bc74dbf19
+  RxCocoa: 2f35a76bf8887872e28a1914112395b11b8e0e64
+  RxSwift: 92fcf68dfef21f3e2ab1965363d9e7b3d787597e
+
+PODFILE CHECKSUM: 8be3da4d42536320d3c55e15ecf6665141153867
+
+COCOAPODS: 1.6.1
