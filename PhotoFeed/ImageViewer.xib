@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="ImageViewer" customModule="PhotoFeed" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="1440" height="960"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ai2-dR-a97">
+                    <rect key="frame" x="0.0" y="0.0" width="1440" height="960"/>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="thebest" id="DhD-jO-rWq"/>
+                </imageView>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="ai2-dR-a97" secondAttribute="trailing" id="0r0-l4-9Tc"/>
+                <constraint firstAttribute="bottom" secondItem="ai2-dR-a97" secondAttribute="bottom" id="S2B-OE-M7E"/>
+                <constraint firstItem="ai2-dR-a97" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="fSS-KA-5bi"/>
+                <constraint firstItem="ai2-dR-a97" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="qSH-rt-wiu"/>
+            </constraints>
+        </customView>
+        <collectionViewItem id="d8N-G4-XX0" customClass="ImageViewer" customModule="PhotoFeed" customModuleProvider="target">
+            <connections>
+                <outlet property="imageV" destination="ai2-dR-a97" id="dRe-rg-HJV"/>
+                <outlet property="imageView" destination="ai2-dR-a97" id="BJS-GY-0hx"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="dZD-cM-Tf0"/>
+            </connections>
+        </collectionViewItem>
+    </objects>
+    <resources>
+        <image name="thebest" width="1440" height="960"/>
+    </resources>
+</document>

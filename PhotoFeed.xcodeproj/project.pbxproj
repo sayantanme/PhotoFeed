@@ -10,6 +10,8 @@
 		07B2161D330F7B40B9280723 /* Pods_PhotoFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2FE56331FBB749F0437F45D /* Pods_PhotoFeed.framework */; };
 		1D983F6CECF1E36237DB7B84 /* Pods_PhotoFeedUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F2E5FA7EC41B05B577F3F2C /* Pods_PhotoFeedUITests.framework */; };
 		3947A2E3223BEF6D006F3CDF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3947A2E2223BEF6D006F3CDF /* GoogleService-Info.plist */; };
+		397FF2EB2246140E00D46374 /* ImageViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397FF2E92246140E00D46374 /* ImageViewer.swift */; };
+		397FF2EC2246140E00D46374 /* ImageViewer.xib in Resources */ = {isa = PBXBuildFile; fileRef = 397FF2EA2246140E00D46374 /* ImageViewer.xib */; };
 		39A834DA223AC1B800DD180D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A834D9223AC1B800DD180D /* AppDelegate.swift */; };
 		39A834DC223AC1B800DD180D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A834DB223AC1B800DD180D /* ViewController.swift */; };
 		39A834DF223AC1B800DD180D /* PhotoFeed.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 39A834DD223AC1B800DD180D /* PhotoFeed.xcdatamodeld */; };
@@ -43,6 +45,8 @@
 		0A90C659CB226FF7E97C14A8 /* Pods-PhotoFeedTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoFeedTests.debug.xcconfig"; path = "Target Support Files/Pods-PhotoFeedTests/Pods-PhotoFeedTests.debug.xcconfig"; sourceTree = "<group>"; };
 		2F61FADE25F02846690E061E /* Pods-PhotoFeed.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoFeed.release.xcconfig"; path = "Target Support Files/Pods-PhotoFeed/Pods-PhotoFeed.release.xcconfig"; sourceTree = "<group>"; };
 		3947A2E2223BEF6D006F3CDF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		397FF2E92246140E00D46374 /* ImageViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewer.swift; sourceTree = "<group>"; };
+		397FF2EA2246140E00D46374 /* ImageViewer.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageViewer.xib; sourceTree = "<group>"; };
 		39A834D6223AC1B800DD180D /* PhotoFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39A834D9223AC1B800DD180D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		39A834DB223AC1B800DD180D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -140,6 +144,8 @@
 				39A834DB223AC1B800DD180D /* ViewController.swift */,
 				39A834E0223AC1BA00DD180D /* Assets.xcassets */,
 				39A834E2223AC1BA00DD180D /* Main.storyboard */,
+				397FF2E92246140E00D46374 /* ImageViewer.swift */,
+				397FF2EA2246140E00D46374 /* ImageViewer.xib */,
 				39A834E5223AC1BA00DD180D /* Info.plist */,
 				39A834E6223AC1BA00DD180D /* PhotoFeed.entitlements */,
 				39A834DD223AC1B800DD180D /* PhotoFeed.xcdatamodeld */,
@@ -301,6 +307,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				39A834E1223AC1BA00DD180D /* Assets.xcassets in Resources */,
+				397FF2EC2246140E00D46374 /* ImageViewer.xib in Resources */,
 				39A834E4223AC1BA00DD180D /* Main.storyboard in Resources */,
 				3947A2E3223BEF6D006F3CDF /* GoogleService-Info.plist in Resources */,
 			);
@@ -431,6 +438,7 @@
 				39A834DF223AC1B800DD180D /* PhotoFeed.xcdatamodeld in Sources */,
 				39A834DC223AC1B800DD180D /* ViewController.swift in Sources */,
 				39A834DA223AC1B800DD180D /* AppDelegate.swift in Sources */,
+				397FF2EB2246140E00D46374 /* ImageViewer.swift in Sources */,
 				39F2BA5B223CE30500C0A075 /* PhotoModel.swift in Sources */,
 				39EC1117223CC0DF000FF16C /* PViewerVM.swift in Sources */,
 			);

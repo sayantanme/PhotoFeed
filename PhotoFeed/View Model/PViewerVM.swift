@@ -13,11 +13,12 @@ import FirebaseDatabase
 import FirebaseCore
 
 
-struct PViewerVM {
+class PViewerVM {
     
     let disBag = DisposeBag()
     //let photoModels = BehaviorRelay<[PhotoModel]>(value: [])
     let photoModels = PublishRelay<PhotoModel>()
+    var photoItems = [PhotoModel]()
     
     func setupFirebase(){
         let dbRef = Database.database().reference()
@@ -49,7 +50,6 @@ struct PViewerVM {
                     return 200..<300 ~= response.statusCode
                 }
                 .map({ (_, data: Data) -> URL in
-                    //var msg  = ""
                     
                     let picDirectory = localPath.appendingPathComponent("\(NSDate().timeIntervalSince1970 * 1000).png", isDirectory: false)
                     
@@ -57,7 +57,6 @@ struct PViewerVM {
                         try data.write(to: picDirectory)
                         
                     }catch{
-                        //msg = error.localizedDescription
                         print(error.localizedDescription)
                     }
                     return picDirectory
@@ -69,13 +68,19 @@ struct PViewerVM {
                     pModel, direc,
                     resultSelector: { value1, value2 -> PhotoModel in
                         //print("\(value1) \(value2)")
-                        return PhotoModel(url: value1.first,message: value1.last,localUrl: value2)
+                        return PhotoModel(url: value1.last,message: value1.first,localUrl: value2)
                 })
                 .subscribe(onNext: { (object) in
                     print("Here:\(object)")
+                    self.photoItems.append(object)
                     self.photoModels.accept(object)
+                }, onError: { (error) in
+                    print(error.localizedDescription)
+                }, onCompleted: {
+                    print("Completed")
                 })
                 .disposed(by: self.disBag)
+
             }
         }
 

@@ -708,23 +708,53 @@
             <objects>
                 <viewController id="nFL-EB-Vxb" customClass="ViewController" customModule="PhotoFeed" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="aby-zf-Ow2">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
-                        <autoresizingMask key="autoresizingMask"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1280" height="800"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vl1-fh-frJ">
-                                <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="thebest" id="EAI-IF-yLW"/>
-                            </imageView>
+                            <scrollView wantsLayer="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vZH-vA-44y">
+                                <rect key="frame" x="0.0" y="0.0" width="1280" height="800"/>
+                                <clipView key="contentView" id="EUa-Ts-Fjn">
+                                    <rect key="frame" x="1" y="1" width="1278" height="798"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <collectionView id="ZTe-80-tL9">
+                                            <rect key="frame" x="0.0" y="0.0" width="1278" height="158"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                            <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" id="R4S-mI-b3b">
+                                                <size key="itemSize" width="1280" height="800"/>
+                                            </collectionViewFlowLayout>
+                                            <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <connections>
+                                                <outlet property="dataSource" destination="nFL-EB-Vxb" id="Vqc-5E-oXa"/>
+                                                <outlet property="delegate" destination="nFL-EB-Vxb" id="EtS-kk-8jk"/>
+                                            </connections>
+                                        </collectionView>
+                                    </subviews>
+                                </clipView>
+                                <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="ANB-OH-eE8">
+                                    <rect key="frame" x="1" y="144" width="233" height="15"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="Nv1-aT-MVX">
+                                    <rect key="frame" x="234" y="1" width="15" height="143"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                            </scrollView>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="vZH-vA-44y" firstAttribute="top" secondItem="aby-zf-Ow2" secondAttribute="top" id="0xk-en-p8e"/>
+                            <constraint firstAttribute="trailing" secondItem="vZH-vA-44y" secondAttribute="trailing" id="9xP-dK-2Un"/>
+                            <constraint firstAttribute="bottom" secondItem="vZH-vA-44y" secondAttribute="bottom" id="YXP-Lj-QB0"/>
+                            <constraint firstItem="vZH-vA-44y" firstAttribute="leading" secondItem="aby-zf-Ow2" secondAttribute="leading" id="lkG-dz-XAi"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="ZTe-80-tL9" id="9fA-hp-And"/>
+                    </connections>
                 </viewController>
                 <customObject id="KoO-nK-nzT" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="53" y="1278"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="thebest" width="1440" height="960"/>
-    </resources>
 </document>
