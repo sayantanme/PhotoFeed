@@ -15,12 +15,47 @@ import FirebaseCore
 
 class PViewerVM {
     
-    let disBag = DisposeBag()
+    private let disBag = DisposeBag()
     //let photoModels = BehaviorRelay<[PhotoModel]>(value: [])
-    let photoModels = PublishRelay<PhotoModel>()
+    
     var photoItems = [PhotoModel]()
     
-    func setupFirebase(){
+    
+    func createImageStreams() -> PublishRelay<PhotoModel>{
+        let models = PublishRelay<PhotoModel>()
+        let localPhotoObs = getPhotoModelsFromLocalFolder()
+        let firebasePhotos = getPhotoModelsFromFirebase().asObservable()
+        
+        Observable.of(localPhotoObs,firebasePhotos)
+            .merge()
+            .subscribe (onNext: { (model) in
+                models.accept(model)
+                self.photoItems.append(model)
+            }).disposed(by: disBag)
+        
+        
+        return models
+        //self.photoItems.append(object)
+    }
+    
+    fileprivate func getPhotoModelsFromLocalFolder() -> Observable<PhotoModel>{
+        let photoLoaderDirec = URL(fileURLWithPath: "/Users/SayantanChakraborty/Documents/localPics", isDirectory: true)
+        let urls = getFilesURLFromFolder(photoLoaderDirec)
+        
+        
+        if let u = urls{
+            let v = Observable.from(u).map { (url) -> PhotoModel in
+                return PhotoModel(url: "", message: "", localUrl: url)
+            }
+            
+            return v
+        }
+        
+        return Observable<PhotoModel>.empty()
+    }
+    
+    fileprivate func getPhotoModelsFromFirebase() -> PublishRelay<PhotoModel>{
+        let photoModels = PublishRelay<PhotoModel>()
         let dbRef = Database.database().reference()
         let localPath = createFolder()
         print(localPath)
@@ -72,8 +107,8 @@ class PViewerVM {
                 })
                 .subscribe(onNext: { (object) in
                     print("Here:\(object)")
-                    self.photoItems.append(object)
-                    self.photoModels.accept(object)
+                    //self.photoItems.append(object)
+                    photoModels.accept(object)
                 }, onError: { (error) in
                     print(error.localizedDescription)
                 }, onCompleted: {
@@ -83,6 +118,7 @@ class PViewerVM {
 
             }
         }
+        return photoModels
 
     }
     
@@ -105,7 +141,33 @@ class PViewerVM {
         return url
     }
     
-    fileprivate func downloadToLocalFile(){
+    fileprivate func getFilesURLFromFolder(_ folderURL: URL) -> [URL]? {
         
+        let options: FileManager.DirectoryEnumerationOptions =
+            [.skipsHiddenFiles, .skipsSubdirectoryDescendants, .skipsPackageDescendants]
+        let fileManager = FileManager.default
+        let resourceValueKeys = [URLResourceKey.isRegularFileKey, URLResourceKey.typeIdentifierKey]
+        
+        guard let directoryEnumerator = fileManager.enumerator(at: folderURL, includingPropertiesForKeys: resourceValueKeys,
+                                                               options: options, errorHandler: { url, error in
+                                                                print("`directoryEnumerator` error: \(error).")
+                                                                return true
+        }) else { return nil }
+        
+        var urls: [URL] = []
+        for case let url as URL in directoryEnumerator {
+            do {
+                let resourceValues = try (url as NSURL).resourceValues(forKeys: resourceValueKeys)
+                guard let isRegularFileResourceValue = resourceValues[URLResourceKey.isRegularFileKey] as? NSNumber else { continue }
+                guard isRegularFileResourceValue.boolValue else { continue }
+                guard let fileType = resourceValues[URLResourceKey.typeIdentifierKey] as? String else { continue }
+                guard UTTypeConformsTo(fileType as CFString, "public.image" as CFString) else { continue }
+                urls.append(url)
+            }
+            catch {
+                print("Unexpected error occured: \(error).")
+            }
+        }
+        return urls
     }
 }

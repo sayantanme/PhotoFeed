@@ -27,13 +27,13 @@ class ViewController: NSViewController {
         //        print(storage.reference())
         
         // Do any additional setup after loading the view.
-        vm.setupFirebase()
-        
-        _ = vm.photoModels.subscribe { (model) in
+        _ = vm.createImageStreams().subscribe { (model) in
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
             }
         }
+        
+        //_ = vm.photoModels.
         self.setUpTimer()
         
         //vm.photoModels.asObservable().bind(to: collectionView.rx.ite)
